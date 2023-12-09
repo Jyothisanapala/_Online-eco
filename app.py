@@ -12,7 +12,7 @@ import re
 import stripe
 from flask_weasyprint import HTML, render_pdf
 stripe.api_key='sk_test_51MMsHhSGj898WTbYXSx509gD14lhhXs8Hx8ipwegdytPB1Bkw0lJykMB0yGpCux95bdw1Gk9Gb9nJIWzPEEDxSqf00GEtCqZ8Y'
-mydb=mysql.connector.connect(host='localhost',user='root',password='Admin',db='ecom')
+#mydb=mysql.connector.connect(host='localhost',user='root',password='Admin',db='ecom')
 
 
 app=Flask(__name__)
@@ -20,7 +20,7 @@ app=Flask(__name__)
 app.secret_key=secret_key
 
 app.config['SESSION_TYPE']='filesystem'
-'''user=os.environ.get('RDS_USERNAME')
+user=os.environ.get('RDS_USERNAME')
 db=os.environ.get('RDS_DB_NAME')
 password=os.environ.get('RDS_PASSWORD')
 host=os.environ.get('RDS_HOSTNAME')
@@ -33,7 +33,7 @@ with mysql.connector.connect(host=host,port=port,user=user,password=password,db=
     cursor.execute("create table if not exists reviews(itemid binary(16),user varchar(25),title tinytext,review text,rating int,date datetime default current_timestamp(),primary key(itemid,user))")
     cursor.execute("create table if not exists orders(ordid bigint primary key auto_increment,itemid binary(16),item_name longtext,qyt int,total_price bigint,user varchar(25),foreign key(itemid) references additems(item_id),foreign key(user) references users(user_name))")
     cursor.execute("create table if not exists contactus(name varchar(30),emailid varchar(40),message tinytext)")
-mydb=mysql.connector.connect(host=host,user=user,password=password,db=db,port=port)'''
+mydb=mysql.connector.connect(host=host,user=user,password=password,db=db,port=port)
 Session(app)
 @app.route('/')
 def index():
